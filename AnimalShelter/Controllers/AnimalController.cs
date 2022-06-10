@@ -22,7 +22,7 @@ namespace AnimalShelter.Controllers
 
     // GET api/animals
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Animal>>> Get(string breed)
+    public async Task<ActionResult<IEnumerable<Animal>>> Get(string breed, string color, string name, int minimumAge, int maximumAge, int minimumPrice, int maximumPrice)
     {
       var query = _db.Animals.AsQueryable();
 
@@ -30,6 +30,36 @@ namespace AnimalShelter.Controllers
       {
         query = query.Where(entry => entry.Breed == breed);
       }
+
+      if (color != null)
+      {
+        query = query.Where(entry => entry.Color == color);
+      }
+
+      if (color != null)
+      {
+        query = query.Where(entry => entry.Color == color);
+      }
+
+      if (minimumAge > 0)
+      {
+        query = query.Where(entry => entry.Age >= minimumAge);
+      }
+
+      // if (maximumAge < 10)
+      // {
+      //   query = query.Where(entry => entry.Age <= maximumAge);
+      // }
+
+      if (minimumPrice >= 0)
+      {
+        query = query.Where(entry => entry.Price >= minimumPrice);
+      }
+
+      // if (maximumPrice < 10000000)
+      // {
+      //   query = query.Where(entry => entry.Price <= maximumPrice);
+      // }
 
       return await query.ToListAsync();
     }
