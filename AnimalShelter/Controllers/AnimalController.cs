@@ -46,20 +46,10 @@ namespace AnimalShelter.Controllers
         query = query.Where(entry => entry.Age >= minimumAge);
       }
 
-      // if (maximumAge < 10)
-      // {
-      //   query = query.Where(entry => entry.Age <= maximumAge);
-      // }
-
       if (minimumPrice >= 0)
       {
         query = query.Where(entry => entry.Price >= minimumPrice);
       }
-
-      // if (maximumPrice < 10000000)
-      // {
-      //   query = query.Where(entry => entry.Price <= maximumPrice);
-      // }
 
       return await query.ToListAsync();
     }
