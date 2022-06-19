@@ -13,9 +13,9 @@ A web application to for a mystical animal shelter.
 - CSS
 - Entity Core
 - Identity Authorization
+- Swagger 
 - MySQL
 - Jwt Authentication
-  - Jwt is a token based authentication system used to verify users via URL. They are a compact and self-contained way for securely transmitting information between parties as a JSON object.
 
 ## Description
 
@@ -47,7 +47,47 @@ A web application that allows a user to log in and create treats with flavors, a
 
 - Follow the prompt to view the project at _localhost:5000_ with your preferred browser. I recommend Google Chrome.
 
-- To view the API with Swagger navigate to _localhost:5000/swagger/v1/swagger.json"_ with your browser.
+## API Endpoint Documentation 
+
+  * You can explore the API endpoints in postman.
+
+ * You can view all of the endpoints with swagger, by running *dotnet run* in your terminal and then navigate to *https://localhost:5001/swagger/index.html* with your browser. 
+
+ * Endpoints
+
+ * Request Structure
+
+    ```
+    Get /api/animals/
+    Post /api/animals/
+    Get /api/animals/{id}
+    Put /api/animals/{id}
+    Delete /api/animals/{id}
+    ```
+
+ * Example Query
+
+```http://localhost:5000/api/animals?breed=dragon&color=green```
+
+ * Response
+ ```
+    { 
+      AnimalId = 2, 
+      Name = "Nick", 
+      Breed = "Dragon",
+      Color = "Green", 
+      Age = 108, 
+      Price = 0
+    }
+ ```
+
+## Swagger
+
+  * Swagger is a UI that runs 
+
+## JWT AUTHENTICATION 
+  * Jwt is a token based authentication system used to verify users via URL. They are a compact and self-contained way for securely transmitting information between parties as a JSON object.
+  * It is not currently functioning on this project. 
 
 ## Known Bugs
 
